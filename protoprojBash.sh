@@ -10,15 +10,17 @@
 #SBATCH -e /scratch/jrosen5/applied_proj/sandbox/srmoputs/slurm.%j.err # file to save job's STDERR (%j = JobId)
 #SBATCH --export=NONE   # Purge the job-submitting shell environment
 
-#initialize fastp environment through mamba 
-cd /scratch/jrosen5/applied_proj/sandbox
 
+#change to your desired dir
+cd /yourdir/here/sandbox
+
+#initialize fastp environment through mamba
 module load mamba/latest
 
 source activate fastp
 
 # Loop over paired-end files in PDreads directory
-for read1in in /scratch/jrosen5/applied_proj/sandbox/data/PDreads/*_1.fastq.gz; do
+for read1in in /your/PDdir/here/PDreads/*_1.fastq.gz; do
 
     # Get corresponding read2 file
     read2in="${read1in%_1.fastq.gz}_2.fastq.gz"
@@ -45,10 +47,11 @@ for read1in in /scratch/jrosen5/applied_proj/sandbox/data/PDreads/*_1.fastq.gz; 
     OLDLIB=$LD_LIBRARY_PATH
     OLDINC=$INCLUDE
     OLDBIN=$PATH
-
-    export PATH="/home/jrosen5/applied_proj/sandbox/bin:$PATH"
-    export INCLUDE="/home/jrosen5/applied_proj/sandbox/include:$INCLUDE"
-    export LD_LIBRARY_PATH="/home/jrosen5/applied_proj/sandbox/bin:$LD_LIBRARY_PATH"
+    #path adjustments due to unique path issues on HPC system
+    #made in consultation with RC staff
+    export PATH="/yourpath/here:$PATH"
+    export INCLUDE="/home/yourpath/here/include:$INCLUDE"
+    export LD_LIBRARY_PATH="/home/yourpath/here/bin:$LD_LIBRARY_PATH"
 
     # 27mers, strict memory mode, using SRR fastq file, histogram kmc
     kmc -k27 -ci25 "$mergeReadout" histogram . 
@@ -73,7 +76,7 @@ for read1in in /scratch/jrosen5/applied_proj/sandbox/data/PDreads/*_1.fastq.gz; 
     du -h "$mergeReadout"
     stat "$mergeReadout"
     # removing intermediate files
-    rm /scratch/jrosen5/applied_proj/sandbox/histogram.kmc_pre /scratch/jrosen5/applied_proj/sandbox/histogram.kmc_suf
+    rm /yourdir/here/sandbox/histogram.kmc_pre /yourdir/here/sandbox/histogram.kmc_suf
     rm "$mergeReadout" 
     rm "$histoTXT"
     
