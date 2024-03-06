@@ -29,7 +29,10 @@ for directory in [PD_path, PRCR_path]:
                 matrix_df = df
             else:
                 matrix_df = pd.merge(matrix_df, df, on='kmer', how='outer')
-                matrix_df.fillna(0, inplace=True)
+                
+
+#replace NA with 0's
+matrix_df.fillna(0, inplace=True)
 
 # Check the final DataFrame
 matrix_df.head()
@@ -41,4 +44,4 @@ print("Matrix has " + str(matrix_df.shape[1]) + " columns")
 
 #write matrix to .csv
 
-matrix_df.to_csv('/your/destination/dir/here', index=False)
+matrix_df.to_csv('/your/destination/dir/here/file.csv', index=False)
