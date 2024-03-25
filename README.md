@@ -31,16 +31,16 @@ This Jupyter notebook provides an automated approach to download SRA (Sequence R
 This notebook is a practical tool for researchers needing to download and prepare large sets of SRA data for genomic or metagenomic analysis.
 
 
-##K-mer Matrix Aggregator Script (full_join_loop_python.py)
+# K-mer Matrix Aggregator Script (full_join_loop_python.py)
 
-This Python script automates the process of aggregating k-mer matrices by performing a full join on multiple CSV files containing k-mer rows and sample columns. It is particularly useful for compiling comprehensive k-mer datasets from various samples, facilitating downstream bioinformatics analysis.
+This Python script automates the process of aggregating k-mer matrices by performing a full join on multiple CSV files containing k-mer rows and sample columns. It is particularly useful for compiling comprehensive k-mer datasets from various samples, facilitating downstream bioinformatics analysis. 
 
 ## Features
 
 - **Dynamic File Processing**: Iterates through directories containing CSV files to aggregate data based on k-mers.
 - **Full Join Operation**: Utilizes a full join to merge matrices, ensuring all k-mers are included in the final aggregated matrix.
 - **NA Handling**: Converts any NA values resulting from the join to 0, maintaining a consistent data format.
-- **Output Generation**: Produces a comprehensive CSV file containing the aggregated k-mer matrix.
+- **Output Generation**: Produces a comprehensive CSV file containing the aggregated k-mer matrix, in the format of k-mer rows and sample columns.
 
 ## Workflow
 
@@ -62,7 +62,7 @@ This script is a valuable tool for bioinformaticians looking to compile k-mer da
 
 
 ## Inner Join Loop
-This script functions like the Full Join Loop but is set to perform an inner join operation. It is designed to iterate through directories containing kmer matrices, joining them based on sample type and exporting the combined matrix to a CSV file.
+This script functions identically to the Full Join Loop but is set to perform an inner join operation. It is designed to iterate through directories containing kmer matrices, joining them based on sample type and exporting the combined matrix to a CSV file.
 
 # K-mer Matrix Generation Script (protoprojBash.sh) 
 
@@ -94,7 +94,7 @@ This script is tailored for bioinformatics workflows requiring efficient k-mer a
 
 # K-mer Count Data Normalization Script (VSTnormscript.R)
 
-This R script is designed to perform normalization on k-mer count data using the Variance Stabilizing Transformation (VST) method from the DESeq2 library. It's particularly useful for preparing k-mer count data for downstream statistical analysis and comparisons.
+This R script is designed to perform normalization on k-mer count data using the Variance Stabilizing Transformation (VST) method from the DESeq2 library.
 
 ## Features
 
@@ -128,6 +128,7 @@ This R script performs a comprehensive analysis on a k-mer count matrix, applyin
 - **Metadata Alignment**: Ensures that the metadata is correctly aligned with the count data for accurate model training and evaluation.
 - **Nested Cross-Validation**: Implements nested cross-validation using glmnet for model selection and evaluation, providing robust assessment of the model's performance.
 - **Visualization**: Generates plots for alpha and lambda selection, as well as ROC curves, to visually represent model performance and parameter selection.
+- **Documentation**: Generates step-by-step logs of the process for efficient record keeping. 
 
 ## Workflow
 
