@@ -169,9 +169,8 @@ This Bash script is designed to run an R script (`nestedcv_script_final.R`) on a
 
 - Place the Bash script in the same directory as the `nestedcv_script_final.R` or adjust the `cd` command to the script's directory.
 - Submit the script to the SLURM scheduler using `sbatch rBatch.sh`.
-- Monitor the job's execution via SLURM commands (e.g., `squeue`, `sacct`) and check the output and error files for logs and potential issues.
 
-This script is crucial for researchers or data scientists who need to run resource-intensive R scripts on an HPC environment, facilitating advanced data analysis, statistical modeling, or computational tasks that require substantial computational power.
+This is a useful preset script for easily executing R scripts on slurm. 
 
 
 
