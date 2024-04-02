@@ -15,8 +15,6 @@ This jupyter notebook provides an efficient and automated approach to downloadin
 - Configure path to run ID .csv file 
 - Configure download dirs for SRA & .fastq files
 
-## Summary
-A very useful script for efficiently downloading .fastq from SRA, allows for worry free downloads with large datasets & long download times
 
 # K-mer Matrix Full Join loop (full_join_loop_python.py)
 A python script designed to automate the full-joining of k-mer matrices (consisting of a k-mer sequence column and a count column) into a larger matrix consisting of k-mer rows and sample columns with count records. This can also be used for other forms of 'omic data, such as gene count matrices. 
@@ -28,6 +26,9 @@ A python script designed to automate the full-joining of k-mer matrices (consist
 
 ## Usage
 - Configure paths and ensure directories are exclusively filled with target files
+
+# K-mer Matrix Inner Join loop (inner_join_loop_python.py)
+Identical to the full join loop above but designed to inner join files instead of full join
 
 # K-mer Matrix Bash Script (protoprojBash.sh)
 A bash script designed to process paired-end .fastq files through the KMC and fastp portions of the project pipeline into a k-mer matrix output. It is designed for use in an HPC environment, and has preset SLURM settings as such. Can be used for other forms of 'omic data with some significant modications. 
@@ -49,7 +50,8 @@ A bash script designed to process paired-end .fastq files through the KMC and fa
    -Prints data on job and matrix file for documentation purposes
    -removes intermediary files
    
-- **Usage**: Ensure to configure environment paths, as well as fastp and kmc commands
+## Usage 
+-Ensure to configure environment paths, as well as fastp and kmc commands
 
 # K-mer matrix VST normalization script
 A VST normalization script designed for large k-mer matrices 
@@ -62,7 +64,48 @@ A VST normalization script designed for large k-mer matrices
 - **Documentation & output**
    - prints information on matrix dimensions for documentation purposes
    - writes normalized matrix to .csv file
+## Usage 
+-Ensure desired file/path configuration and desired fit type
 
+# K-mer Matrix Classification Model (nestedcv_script_final.R)
+A script designed to run nested CV on a k-mer matrix, and output plot AUC plots and result summary. Optimized for use on an HPC system using Slurm. 
 
+## Workflow
+- **Initialization**:
+   - Loads Necessary libraries/packages
+   - Reads .csv matrix as matrix into environment
+   - prints data on matrix for documentation purposes
+   - replaces NA's
+   - loads metadata, a CSV file of responders/non-responders (Y vector for Nested CV)
+- **Processing**:
+   - Transposes matrix and metadata to align
+   - Scales matrix for normalization purposes
+   - Prints matrix dimension data for error checks
+   - Performs Nested CV
+        - Set for T-Test filter, logistic regression (binomial), a sequential alpha, and a random sample balance technique
+   - Prints information on Nested CV command
+   - Creates plots (Alphas, Lambdas, AUC) and writes them to pdf with unique file name based on Slurm job ID
+ ## Usage
+- Set paths to desired files and destination dirs as needed
+- Configure Nested CV command to desired settings
+- adjust transpose command as needed to your matrix/metadata dimensions
+- adjust slurm related code if not using slurm
+
+# HPC R-script execution (rBatch.sh)
+
+A Bash script designed to execute R-scripts on an HPC system using slurm. Requests necessary resources (cores, memory, partition, time limit etc), useful for computationally intensive jobs that cannot be handled locally. 
+
+## Workflow
+- **Slurm Settings**:
+   - Sets desired Slurm options, including error and output file path, partition, time limit, memory, core/node number, priority, and environment variable options
+- **Initialization**:
+   - Loads R module
+   - sets working dir
+- **Execution**:
+  - References and executes target R-script
+## Usage
+- Ensure configuration of desired Slurm settings
+- Set target file paths and working directory
+  
    
 
