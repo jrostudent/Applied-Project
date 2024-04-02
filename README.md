@@ -12,8 +12,8 @@ This jupyter notebook provides an efficient and automated approach to downloadin
    -if not; downloads using 'prefetch'
    -converts to .fastq using 'fastq-dump'
 ## Usage 
--Configure path to run ID .csv file 
--Configure download dirs for SRA & .fastq files
+- Configure path to run ID .csv file 
+- Configure download dirs for SRA & .fastq files
 
 ## Summary
 A very useful script for efficiently downloading .fastq from SRA, allows for worry free downloads with large datasets & long download times
