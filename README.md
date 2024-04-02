@@ -5,7 +5,7 @@ This repository hosts my master's degree applied project for the ASU Bio Data Sc
 
 This jupyter notebook provides an efficient and automated approach to downloading .fastq files from SRA. It is optimized for large datasets (with long download times) with features designed to avoid redundancies and ensure organization. 
 
-## Workflow
+##Workflow
 -**Initialization**: Loads packages, defines dir paths for storing downloaded files
 -**ID Extraction**: Reads .csv, extracts run IDs and stores them in list for data download
 -**Data Download**: Checks if ID matching files already exist in SRA or .fastq dirs
