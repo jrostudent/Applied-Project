@@ -7,7 +7,6 @@
 #SBATCH -t 1-0
 #SBATCH -n 1
 #SBATCH --mem=700G
-#SBATCH -o slurm.%j.out
 #SBATCH --export=NONE
 #SBATCH -o /home/jrosen5/applied_proj/sandbox/slurmOutputs/slurm.%j.out # file to save job's STDOUT (%j = JobId)
 #SBATCH -e /home/jrosen5/applied_proj/sandbox/slurmOutputs/slurm.%j.err # file to save job's STDERR (%j = JobId)
