@@ -109,3 +109,20 @@ A Bash script designed to execute R-scripts on an HPC system using slurm. Reques
   
    
 
+# Subset k-mer Matrix Creation Script (minimatrix_create.R)
+
+A script designed to use two smaller inner-joined matrices in the creation of a subsetted matrix, adding k-mer records from the larger matrix that are recorded for the samples in the smaller matrices. This was done to reduce the size of the matrix, while still keeping check on the bias created by inner joining the matrices by sample type. 
+
+## Workflow
+- **Initialization**
+   - Loads necessary libraries
+   - Loads Matrices, both inner joined matrices and the larger "mega" matrix
+- **Subset Architecture**
+  -Names the rows from the inner joined matrices to keep
+- **Subsetting**
+  - Matches keep rows with rows in mega matrix
+- **Matrix -> CSV**
+  -Writes subset matrix to .csv
+## Usage
+- Ensure configuration of necessary paths to desired matrices
+- Ensure you understand which matrices you want to subset and how
